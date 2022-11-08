@@ -88,11 +88,11 @@ export const CUISINES = [
     value: 'chicken',
     source: require('../assets/images/cuisines/chicken.jpg'),
   },
-  {
-    title: 'Chicken & Waffles',
-    value: 'chicken-and-waffles',
-    source: require('../assets/images/cuisines/chicken-and-waffles.jpg'),
-  },
+  // {
+  //   title: 'Chicken & Waffles',
+  //   value: 'chicken-and-waffles',
+  //   source: require('../assets/images/cuisines/chicken-and-waffles.jpg'),
+  // },
   {
     title: 'Chinese',
     value: 'chinese',

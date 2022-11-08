@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {Provider} from 'react-redux';
+import store from './src/shared/store/store';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -9,17 +11,19 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Tab"
-          component={TabNavigator}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen name="HomeScreen" component={Home} />
-        <Stack.Screen name="ExploreScreen" component={Explore} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Tab"
+            component={TabNavigator}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen name="HomeScreen" component={Home} />
+          <Stack.Screen name="ExploreScreen" component={Explore} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 };
 
