@@ -12,14 +12,14 @@ const CustomTabNavigator = ({state, navigation}) => {
   return (
     <View
       style={{
-        position: 'absolute',
-        bottom: '3%',
-        left: theme.spacing.large,
-        right: theme.spacing.large,
-        flexDirection: 'row',
-        height: 70,
-        backgroundColor: theme.colours.primaryColor,
-        borderRadius: 30,
+        // position: 'absolute',
+        // bottom: '3%',
+        // left: theme.spacing.large,
+        // right: theme.spacing.large,
+        // flexDirection: 'row',
+        // height: 55,
+        // backgroundColor: theme.colours.primaryColor,
+        // borderRadius: 30,
       }}>
       {state.routes.map((route, index) => {
         const isFocused = state.index === index;

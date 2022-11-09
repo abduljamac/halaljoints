@@ -3,10 +3,11 @@ import {theme} from '../../../shared/theme';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 5,
+    marginTop: theme.spacing.medium,
     marginHorizontal: theme.spacing.XSmall,
     borderRadius: theme.spacing.small,
     padding: theme.spacing.XSmall,
+    marginBottom: theme.spacing.small,
   },
   title: {
     fontSize: theme.fontSizes.heading2,

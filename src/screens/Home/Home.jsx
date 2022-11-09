@@ -1,5 +1,5 @@
 import {Text, ScrollView} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import styles from './Home.style';
 import Header from '../components/Header/Header';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -21,6 +21,7 @@ import {
 import CusineCategory from '../components/CusineCategory/CusineCategory';
 // import RestaurantCard from '../components/RestaurantCard/RestaurantCard';
 import Resturants from '../components/Resturants/Resturants';
+import Article from '../components/Articles/Articles';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -41,18 +42,20 @@ const Home = () => {
     <SafeAreaView style={{flex: 1}}>
       <Header />
 
-      <ScrollView style={styles.content}>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.content}>
         <CusineCategory setselectedCuisine={setselectedCuisine} />
 
         {/* Top Rated */}
         <Resturants items={topRatedRes} title={'Top Rated'} />
+
+        {/* Get Inspired */}
+        <Article />
+
         {/* HMC Certfied Resturants */}
         <Resturants items={HMCertfiedRes} title={'HMC Certfied Resturants'} />
 
-        {/* Get Inspired */}
-        <Text style={styles.title}>Get Inspired</Text>
         {/* Explore The Area */}
-        <Text style={styles.title}>Explore The Area</Text>
+        {/* <Text style={styles.title}>Explore The Area</Text> */}
       </ScrollView>
     </SafeAreaView>
   );

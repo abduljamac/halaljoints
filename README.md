@@ -2,10 +2,12 @@
 
 ## Helpful Links
 
-- https://mehrankhandev.medium.comultimate-guide-to-use-custom-fonts-in-react-native-77fcdf859cf4
-- https://blog.logrocket.com/how-to-use-svgs-react-native-tutorial-with-examples/
-- https://www.crowdbotics.com/blog/how-to-create-a-custom-tab-bar-in-react-native
-- https://stackoverflow.com/questions/64742747how-do-you-pass-arguments-to-createasyncthunk-in-redux-toolkit
+* https://mehrankhandev.medium.comultimate-guide-to-use-custom-fonts-in-react-native-77fcdf859cf4
+* https://blog.logrocket.com/how-to-use-svgs-react-native-tutorial-with-examples/
+* https://www.crowdbotics.com/blog/how-to-create-a-custom-tab-bar-in-react-native
+* https://stackoverflow.com/questions/64742747how-do-you-pass-arguments-to-createasyncthunk-in-redux-toolkit
+* https://www.youtube.com/watch?v=KvRqsRwpwhY - Building a BottomSheet from scratch in React Native
+* https://blog.logrocket.com/caching-images-react-native-tutorial-with-examples/
 
 ## Todo:
 

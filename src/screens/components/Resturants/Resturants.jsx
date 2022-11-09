@@ -9,6 +9,7 @@ const Resturants = ({items, title}) => {
       <Text style={styles.title}>{title}</Text>
       <FlatList
         horizontal
+        showsHorizontalScrollIndicator={false}
         data={items}
         initialNumToRender={5}
         renderItem={({item, index}) => (

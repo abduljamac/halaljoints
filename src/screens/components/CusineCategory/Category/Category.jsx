@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 const Category = ({item, setselectedCuisine}) => {
   return (
     <TouchableOpacity
+      activeOpacity={1}
       style={styles.container}
       onPress={() => {
         setselectedCuisine(item.title);

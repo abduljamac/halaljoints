@@ -2,7 +2,6 @@ import {View, Text, TextInput} from 'react-native';
 import React from 'react';
 import styles from './Header.style';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {theme} from '../../../shared/theme';
 
 const Header = () => {
   return (

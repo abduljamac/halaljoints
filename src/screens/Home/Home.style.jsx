@@ -3,8 +3,7 @@ import {theme} from '../../shared/theme';
 
 const styles = StyleSheet.create({
   content: {
-    // marginTop: 10,
-    // marginHorizontal: theme.spacing.medium,
+    marginTop: 10,
   },
   title: {
     fontSize: theme.fontSizes.heading2,

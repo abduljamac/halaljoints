@@ -15,10 +15,11 @@ const styles = StyleSheet.create({
     borderRadius: theme.spacing.medium,
   },
   discoverItemTitle: {
-    fontSize: 10,
+    fontSize: theme.fontSizes.smallBody,
     color: theme.colours.black,
     fontWeight: '700',
-    paddingTop: 5,
+    paddingTop: 2,
+    paddingLeft: 2,
   },
 });
 
