@@ -4,8 +4,9 @@ import store from './src/shared/store/store';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {Home, Explore} from './src/screens';
+import {Home, Explore, RestaurantDetails} from './src/screens';
 import TabNavigator from './src/shared/navigation/Navigation';
+import { theme } from './src/shared/theme';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,21 @@ const App = () => {
           />
           <Stack.Screen name="HomeScreen" component={Home} />
           <Stack.Screen name="ExploreScreen" component={Explore} />
+          <Stack.Screen
+            name="RestaurantDetails"
+            component={RestaurantDetails}
+            options={{
+              title: '',
+              headerStyle: {
+                // backgroundColor: theme.colours.transparentGray,
+              },
+              // headerTintColor: theme.colours.black,
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            }}
+            // options={{headerShown: false}}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

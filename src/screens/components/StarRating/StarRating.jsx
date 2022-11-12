@@ -6,7 +6,7 @@ import styles from './StarRating.style';
 const StarRating = props => {
   let stars = [];
   let num = Math.round(props.rating);
-  for (var i = 1; i <= num; i++) {
+  for (let i = 1; i <= num; i++) {
     let name = 'star';
     stars.push(<Icon name={name} size={10} style={styles.star} key={i} />);
   }

@@ -43,7 +43,7 @@ export const theme = {
     defaultBackground: '#F3F3F3',
     panelShadowColor: '#8A959E33',
     transparentGray: 'rgba(77,77,77, 0.8)',
-    backgroud: '#F9FAFE',
+    background: '#F9FAFE',
   },
   font: {
     ProximaNovaRegular: 'ProximaNova-Regular',
@@ -52,13 +52,13 @@ export const theme = {
     ModestaScript: 'Modesta-Script',
   },
   fontSizes: {
-    smallBody: 10,
+    smallBody: 12,
     body: 14,
     caption: 16,
     heading: 18,
     heading1: 32,
-    heading2: 20,
-    heading3: 24,
+    heading2: 24,
+    heading3: 20,
   },
   spacing: {
     XSmall: 4,

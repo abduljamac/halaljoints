@@ -37,12 +37,14 @@ const Home = () => {
   const topRatedRes = useSelector(topRatedSelector);
   const HMCertfiedRes = useSelector(HMCertfiedSelector);
   // console.log('resturants: ', JSON.stringify(HMCertfiedRes, null, 2));
-  console.log(selectedCuisine);
+  // console.log(selectedCuisine);
   return (
     <SafeAreaView style={{flex: 1}}>
-      <Header />
-
-      <ScrollView showsVerticalScrollIndicator={false} style={styles.content}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={styles.content}
+        contentContainerStyle={{paddingBottom: 40}}>
+        <Header />
         <CusineCategory setselectedCuisine={setselectedCuisine} />
 
         {/* Top Rated */}

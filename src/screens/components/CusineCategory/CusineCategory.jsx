@@ -14,7 +14,6 @@ const CusineCategory = ({setselectedCuisine}) => {
         removeClippedSubviews={true}
         data={CUISINES}
         initialNumToRender={5}
-        maxToRenderPerBatch={5}
         renderItem={({item}) => (
           <Category item={item} setselectedCuisine={setselectedCuisine} />
         )}

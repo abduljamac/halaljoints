@@ -3,11 +3,19 @@ import React from 'react';
 import styles from './RestaurantCard.style';
 import {BlurView} from '@react-native-community/blur';
 import StarRating from '../../StarRating/StarRating';
+import {useNavigation} from '@react-navigation/native';
 
 const RestaurantCard = res => {
   // const isOpen = res.item.googlePlaceDetail.opening_hours.open_now;
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity activeOpacity={1} style={styles.card}>
+    <TouchableOpacity
+      activeOpacity={1}
+      style={styles.card}
+      onPress={() => {
+        navigation.navigate('RestaurantDetails', {details: res});
+      }}>
       <Image source={{uri: res.item.thumbUrl}} style={styles.cardImage} />
 
       <View style={styles.category}>
