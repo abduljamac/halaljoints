@@ -1,38 +1,26 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Explore} from '../../screens';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Home, Explore, Bookmark } from '../../screens';
+import CustomTabNavigator from './CustomTabNavigator';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {theme} from '../theme';
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarStyle: {
-          position: 'absolute',
-          backgroundColor: theme.colours.white,
-        },
-      }}>
+    <Tab.Navigator tabBar={props => <CustomTabNavigator {...props} />}>
       <Tab.Screen
-        name="Home"
+        name="HomeTab"
         component={Home}
-        options={{
-          headerShown: false,
-          tabBarIcon: () => (
-            <Icon name="home" size={30} color={theme.colours.primaryColor} />
-          ),
-        }}
+        options={{ headerShown: false }}
       />
       <Tab.Screen
-        name="Explore"
+        name="ExploreTab"
         component={Explore}
-        options={{
-          headerShown: false,
-          tabBarIcon: () => (
-            <Icon name="search" size={30} color={theme.colours.primaryColor} />
-          ),
-        }}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Bookmark"
+        component={Bookmark}
+        options={{ headerShown: false }}
       />
     </Tab.Navigator>
   );

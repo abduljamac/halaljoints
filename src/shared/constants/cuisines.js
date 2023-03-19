@@ -1,4 +1,10 @@
-export const CUISINES = [
+export const Cuisines = [
+  {
+    title: 'American',
+    value: 'american',
+    source: require('../assets/images/cuisines/american.jpg'),
+    showOnOnboarding: true,
+  },
   {
     title: 'Afghan',
     value: 'afghan',
@@ -12,12 +18,6 @@ export const CUISINES = [
     showOnOnboarding: true,
   },
   {
-    title: 'American',
-    value: 'american',
-    source: require('../assets/images/cuisines/american.jpg'),
-    showOnOnboarding: true,
-  },
-  {
     title: 'Arab',
     value: 'arab',
     source: require('../assets/images/cuisines/arab.jpg'),
@@ -27,6 +27,18 @@ export const CUISINES = [
     title: 'Asian',
     value: 'asian',
     source: require('../assets/images/cuisines/asian.jpg'),
+  },
+  {
+    title: 'Brunch',
+    value: 'brunch',
+    source: require('../assets/images/cuisines/brunch.jpg'),
+    showOnOnboarding: true,
+  },
+  {
+    title: 'Burgers',
+    value: 'burgers',
+    source: require('../assets/images/cuisines/burgers.jpg'),
+    showOnOnboarding: true,
   },
   {
     title: 'Bangladeshi',
@@ -61,18 +73,6 @@ export const CUISINES = [
     source: require('../assets/images/cuisines/british.jpg'),
   },
   {
-    title: 'Brunch',
-    value: 'brunch',
-    source: require('../assets/images/cuisines/brunch.jpg'),
-    showOnOnboarding: true,
-  },
-  {
-    title: 'Burgers',
-    value: 'burgers',
-    source: require('../assets/images/cuisines/burgers.jpg'),
-    showOnOnboarding: true,
-  },
-  {
     title: 'Cafe',
     value: 'cafe',
     source: require('../assets/images/cuisines/cafe.jpg'),
@@ -88,11 +88,11 @@ export const CUISINES = [
     value: 'chicken',
     source: require('../assets/images/cuisines/chicken.jpg'),
   },
-  // {
-  //   title: 'Chicken & Waffles',
-  //   value: 'chicken-and-waffles',
-  //   source: require('../assets/images/cuisines/chicken-and-waffles.jpg'),
-  // },
+  {
+    title: 'Chicken & Waffles',
+    value: 'chicken-and-waffles',
+    source: require('../assets/images/cuisines/chicken-and-waffles.jpg'),
+  },
   {
     title: 'Chinese',
     value: 'chinese',
@@ -415,4 +415,4 @@ export const CUISINES = [
   },
 ];
 
-export default CUISINES;
+export default Cuisines;

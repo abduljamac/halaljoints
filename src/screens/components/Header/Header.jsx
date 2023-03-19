@@ -1,22 +1,26 @@
-import {View, Text, TextInput} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 import styles from './Header.style';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { Feather } from '@expo/vector-icons';
 
 const Header = () => {
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.headerText}>Welcome</Text>
+    <View>
+      <View style={styles.header}>
         <Text style={styles.headerText2}>
           Find Halal food. <Text style={styles.insideText}> Fast! </Text>
         </Text>
       </View>
 
-      {/* <View style={styles.inputContainer}>
-        <Icon name="search" size={24} />
-        <TextInput placeholder="Enter Postcode" style={styles.textInput} />
-      </View> */}
+      <View style={styles.inputWrapper}>
+        <View style={styles.inputContainer}>
+          <TextInput placeholder="Enter Postcode" style={styles.textInput} />
+        </View>
+
+        <TouchableOpacity style={styles.searchBtn}>
+          <Feather name="search" size={24} color="white" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

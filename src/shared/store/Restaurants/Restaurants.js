@@ -1,43 +1,44 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import HalalJointsApi from '../../api/HalalJointsApi';
-import {INITIAL_STATE} from '../../constants';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import HalalJointsAPI from '../../api/HalalJointsAPI';
+import { INITIAL_STATE } from '../../constants';
+
+const initialState = {
+  resturants: {},
+  loading: false,
+  error: null,
+};
 
 export const fetchResturants = createAsyncThunk(
-  'posts/fetchPosts',
+  'resturants/fetchResturants',
   async () => {
-    try {
-      const response = await HalalJointsApi.get(
-        `/restaurants?point=${INITIAL_STATE.longitude},${INITIAL_STATE.latitude}&maxRadius=1000&pageSize=5`,
-      );
-      return response.data;
-    } catch (error) {
-      return error;
-    }
+    const response = await HalalJointsAPI.get(
+      `/restaurants?point=${INITIAL_STATE.longitude},${INITIAL_STATE.latitude}&maxRadius=1000&pageSize=5`,
+    );
+    return response.data;
   },
 );
 
-const initialStateValue = {
-  resturants: {},
-  status: 'idle',
-};
 const getResturants = createSlice({
   name: 'resturants',
-  initialState: {value: initialStateValue},
+  initialState,
+  reducers: {},
   extraReducers: builder => {
-    builder.addCase(fetchResturants.pending, state => {
-      state.value.status = 'loading';
+    builder.addCase(fetchResturants.pending, (state, action) => {
+      console.log(state);
+      state.loading = true;
+      state.error = null;
     });
     builder.addCase(fetchResturants.fulfilled, (state, action) => {
-      state.value.status = 'succeeded';
-      state.value.resturants = action.payload;
+      state.loading = false;
+      state.resturants = action.payload.results;
     });
     builder.addCase(fetchResturants.rejected, (state, action) => {
-      state.value.status = 'failed';
+      state.loading = false;
+      state.error = action.error.message;
     });
   },
-  reducers: {},
 });
 
-export const restaurantsSelector = state => state.restaurants.value.resturants;
+export const restaurantsSelector = state => state.resturants;
 
 export default getResturants.reducer;

@@ -1,9 +1,9 @@
-import {StyleSheet} from 'react-native';
-import {theme} from '../../../shared/theme';
+import { StyleSheet } from 'react-native';
+import { theme } from '../../../shared/theme';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 5,
+    marginTop: theme.spacing.large,
     marginHorizontal: theme.spacing.XSmall,
     padding: theme.spacing.XSmall,
   },
@@ -12,10 +12,19 @@ const styles = StyleSheet.create({
     height: 70,
     borderRadius: theme.spacing.medium,
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   title: {
-    fontSize: theme.fontSizes.heading2,
     fontWeight: '700',
-    marginHorizontal: theme.spacing.XSmall,
+    fontSize: theme.fontSizes.heading2,
+    marginHorizontal: theme.spacing.small,
+  },
+  headerBtn: {
+    fontWeight: '400',
+    fontSize: theme.fontSizes.smallBody,
   },
 });
 

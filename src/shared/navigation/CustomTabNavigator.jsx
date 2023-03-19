@@ -1,25 +1,26 @@
 import React from 'react';
-import {View, TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {theme} from '../theme';
+import { View, TouchableOpacity } from 'react-native';
+import { Entypo, AntDesign, Feather } from '@expo/vector-icons';
+import { theme } from '../theme';
 
-const CustomTabNavigator = ({state, navigation}) => {
+const CustomTabNavigator = ({ state, navigation }) => {
   const tabIconsArray = [
-    <Icon name="home" size={24} color="white" />,
-    <Icon name="search" size={24} color="white" />,
+    <AntDesign name="home" size={24} color="white" />,
+    <Entypo name="map" size={24} color="white" />,
+    <Feather name="bookmark" size={24} color="white" />,
   ];
 
   return (
     <View
       style={{
-        // position: 'absolute',
-        // bottom: '3%',
-        // left: theme.spacing.large,
-        // right: theme.spacing.large,
-        // flexDirection: 'row',
-        // height: 55,
-        // backgroundColor: theme.colours.primaryColor,
-        // borderRadius: 30,
+        position: 'absolute',
+        bottom: '3%',
+        left: theme.spacing.large,
+        right: theme.spacing.large,
+        flexDirection: 'row',
+        height: 70,
+        backgroundColor: theme.colours.primaryColor,
+        borderRadius: 30,
       }}>
       {state.routes.map((route, index) => {
         const isFocused = state.index === index;
@@ -48,7 +49,7 @@ const CustomTabNavigator = ({state, navigation}) => {
 
         return (
           <View
-            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
+            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
             key={index}>
             <TouchableOpacity
               accessibilityRole="button"

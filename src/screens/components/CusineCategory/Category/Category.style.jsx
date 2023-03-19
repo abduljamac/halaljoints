@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 5,
     marginHorizontal: theme.spacing.XSmall,
-    backgroundColor: theme.colours.white,
     borderRadius: theme.spacing.medium,
     padding: 5,
   },

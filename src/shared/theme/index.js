@@ -45,12 +45,6 @@ export const theme = {
     transparentGray: 'rgba(77,77,77, 0.8)',
     background: '#F9FAFE',
   },
-  font: {
-    ProximaNovaRegular: 'ProximaNova-Regular',
-    ProximaNovaBold: 'ProximaNova-Bold',
-    ProximaNovaSemiBold: 'ProximaNova-SemiBold',
-    ModestaScript: 'Modesta-Script',
-  },
   fontSizes: {
     smallBody: 12,
     body: 14,

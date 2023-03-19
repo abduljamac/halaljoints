@@ -1,64 +1,10 @@
-import {
-  View,
-  Text,
-  ActivityIndicator,
-  Animated,
-  ScrollView,
-} from 'react-native';
-import React, {useEffect, useState, useRef} from 'react';
-import RestaurantHeader from './components/RestaurantHeader/RestaurantHeader';
-import Details from './components/Details/Details';
-import styles from './RestaurantDetails.style';
-import Tags from './components/Tags/Tags';
-import HalalInfo from './components/HalalInfo/HalalInfo';
+import { View, Text } from 'react-native';
+import React from 'react';
 
-const RestaurantDetails = ({route}) => {
-  const {item} = route.params.details;
-  const scrollOffsetY = useRef(new Animated.Value(0)).current;
-  const [selectedResturants, setSelectedResturants] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-  useEffect(() => {
-    setSelectedResturants([item]);
-    setLoading(false);
-  }, []);
-
+const RestaurantDetails = () => {
   return (
-    <View style={styles.container}>
-      {isLoading === true ? (
-        <ActivityIndicator size="large" />
-      ) : (
-        <View>
-          <RestaurantHeader
-            img={selectedResturants[0].thumbUrl}
-            animHeaderValue={scrollOffsetY}
-            name={selectedResturants[0].name}
-            address={selectedResturants[0].address}
-          />
-
-          <ScrollView
-            scrollEventThrottle={16}
-            onScroll={Animated.event(
-              [{nativeEvent: {contentOffset: {y: scrollOffsetY}}}],
-              {useNativeDriver: false},
-            )}
-            contentContainerStyle={styles.container}>
-            <Details
-              name={selectedResturants[0].name}
-              address={selectedResturants[0].address}
-            />
-            <Tags cuisines={selectedResturants[0].cuisines} />
-
-            <HalalInfo
-              name={selectedResturants[0].name}
-              halalDescription={selectedResturants[0].halalDescription}
-              halalDescriptionSource={
-                selectedResturants[0].halalDescriptionSource
-              }
-              halalRatings={selectedResturants[0].halalRatings}
-            />
-          </ScrollView>
-        </View>
-      )}
+    <View>
+      <Text>RestaurantDetails</Text>
     </View>
   );
 };

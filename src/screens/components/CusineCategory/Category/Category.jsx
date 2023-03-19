@@ -1,7 +1,6 @@
 import {Text, Image, ImageBackground, TouchableOpacity} from 'react-native';
 import React from 'react';
 import styles from './Category.style';
-import {useNavigation} from '@react-navigation/native';
 
 const Category = ({item, setselectedCuisine}) => {
   return (

@@ -1,4 +1,10 @@
 {
-  "name": "halaljoints",
-  "displayName": "halaljoints"
+  "expo": {
+    "name": "halaljoints",
+    "slug": "halaljoints",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
 }
