@@ -6,7 +6,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {Home, Explore, RestaurantDetails} from './src/screens';
 import TabNavigator from './src/shared/navigation/Navigation';
-import { theme } from './src/shared/theme';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,17 +24,7 @@ const App = () => {
           <Stack.Screen
             name="RestaurantDetails"
             component={RestaurantDetails}
-            options={{
-              title: '',
-              headerStyle: {
-                // backgroundColor: theme.colours.transparentGray,
-              },
-              // headerTintColor: theme.colours.black,
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
-            }}
-            // options={{headerShown: false}}
+            options={{headerShown: false}}
           />
         </Stack.Navigator>
       </NavigationContainer>

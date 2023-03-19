@@ -31,6 +31,8 @@ const RestaurantDetails = ({route}) => {
           <RestaurantHeader
             img={selectedResturants[0].thumbUrl}
             animHeaderValue={scrollOffsetY}
+            name={selectedResturants[0].name}
+            address={selectedResturants[0].address}
           />
 
           <ScrollView
@@ -47,10 +49,12 @@ const RestaurantDetails = ({route}) => {
             <Tags cuisines={selectedResturants[0].cuisines} />
 
             <HalalInfo
+              name={selectedResturants[0].name}
               halalDescription={selectedResturants[0].halalDescription}
               halalDescriptionSource={
                 selectedResturants[0].halalDescriptionSource
               }
+              halalRatings={selectedResturants[0].halalRatings}
             />
           </ScrollView>
         </View>

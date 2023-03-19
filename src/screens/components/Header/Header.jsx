@@ -13,10 +13,10 @@ const Header = () => {
         </Text>
       </View>
 
-      <View style={styles.inputContainer}>
+      {/* <View style={styles.inputContainer}>
         <Icon name="search" size={24} />
         <TextInput placeholder="Enter Postcode" style={styles.textInput} />
-      </View>
+      </View> */}
     </View>
   );
 };
