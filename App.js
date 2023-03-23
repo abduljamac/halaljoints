@@ -23,7 +23,7 @@ const App = () => {
           <Stack.Screen
             name="RestaurantDetails"
             component={RestaurantDetails}
-            options={{headerShown: false}}
+            // options={{headerShown: false}}
           />
         </Stack.Navigator>
       </NavigationContainer>

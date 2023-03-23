@@ -1,12 +1,13 @@
-import {StyleSheet} from 'react-native';
-import {theme} from '../../../../shared/theme';
+import { StyleSheet } from 'react-native';
+import { theme } from '../../../../shared/theme';
 
 const styles = StyleSheet.create({
   container: {
     marginTop: 5,
+    padding: 5,
     marginHorizontal: theme.spacing.XSmall,
     borderRadius: theme.spacing.medium,
-    padding: 5,
+    backgroundColor: theme.colours.white,
   },
   cuisineImage: {
     width: 70,

@@ -8,37 +8,36 @@ const initialState = {
   error: null,
 };
 
-export const fetchResturants = createAsyncThunk(
-  'resturants/fetchResturants',
+export const fetchTopRatedResturants = createAsyncThunk(
+  'topRated/topRatedResturants',
   async () => {
     const response = await HalalJointsAPI.get(
-      `/restaurants?point=${INITIAL_STATE.longitude},${INITIAL_STATE.latitude}&maxRadius=1000&pageSize=5`,
+      `/restaurants?point=${INITIAL_STATE.longitude},${INITIAL_STATE.latitude}&maxRadius=1000&pageSize=5&sort=-googleRating`,
     );
     return response.data;
   },
 );
 
-const getResturants = createSlice({
-  name: 'resturants',
+const getTopRatedResturants = createSlice({
+  name: 'topRated',
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(fetchResturants.pending, (state, action) => {
-      console.log(state);
+    builder.addCase(fetchTopRatedResturants.pending, (state, action) => {
       state.loading = true;
       state.error = null;
     });
-    builder.addCase(fetchResturants.fulfilled, (state, action) => {
+    builder.addCase(fetchTopRatedResturants.fulfilled, (state, action) => {
       state.loading = false;
       state.resturants = action.payload.results;
     });
-    builder.addCase(fetchResturants.rejected, (state, action) => {
+    builder.addCase(fetchTopRatedResturants.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });
   },
 });
 
-export const restaurantsSelector = state => state.resturants;
+export const topRatedRestaurantsSelector = state => state.topRated;
 
-export default getResturants.reducer;
+export default getTopRatedResturants.reducer;

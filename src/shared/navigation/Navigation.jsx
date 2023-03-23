@@ -15,12 +15,12 @@ const TabNavigator = () => {
       <Tab.Screen
         name="ExploreTab"
         component={Explore}
-        options={{ headerShown: false }}
+        // options={{ headerShown: false }}
       />
       <Tab.Screen
         name="Bookmark"
         component={Bookmark}
-        options={{ headerShown: false }}
+        // options={{ headerShown: false }}
       />
     </Tab.Navigator>
   );

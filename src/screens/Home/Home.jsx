@@ -1,32 +1,60 @@
-import { ScrollView, SafeAreaView } from 'react-native';
+import { ScrollView, SafeAreaView, Text } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import styles from './Home.style';
 import Header from '../components/Header/Header';
 import CusineCategory from '../components/CusineCategory/CusineCategory';
+import Restuarants from '../components/Resturants/Resturants';
+import Article from '../components/Articles/Articles';
+
 import {
-  fetchResturants,
-  restaurantsSelector,
-} from '../../shared/store/Restaurants/Restaurants';
+  fetchTopRatedResturants,
+  topRatedRestaurantsSelector,
+} from '../../shared/store/TopRated/TopRated';
+import {
+  fetchHMCResturants,
+  hmcRestaurantsSelector,
+} from '../../shared/store/HMCCertified/HMCCertified';
+import {
+  fetchNearbyResturants,
+  nearbyRestaurantsSelector,
+} from '../../shared/store/NearbyRestaurants/NearbyRestaurants';
 
 const Home = () => {
   const [selectedCuisine, setselectedCuisine] = useState('');
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchResturants());
+    dispatch(fetchNearbyResturants());
+    dispatch(fetchTopRatedResturants());
+    dispatch(fetchHMCResturants());
+    dispatch(fetchNearbyResturants());
   }, []);
 
-  // const resturants = useSelector(restaurantsSelector);
+  const topRatedResturants = useSelector(topRatedRestaurantsSelector);
+  const hmcResturants = useSelector(hmcRestaurantsSelector);
+  const nearbyResturants = useSelector(nearbyRestaurantsSelector);
 
-  // console.log('resturants: ', JSON.stringify(resturants, null, 2));
+  // console.log('selectedCuisine: ', selectedCuisine);
+  // console.log('resturants: ', JSON.stringify(nearbyResturants, null, 3));
 
   return (
     <SafeAreaView style={styles.container}>
       <Header />
-      <ScrollView>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={styles.content}
+        contentContainerStyle={{ paddingBottom: 60 }}>
         <CusineCategory setselectedCuisine={setselectedCuisine} />
+
+        {/* Nearby */}
+        <Restuarants items={nearbyResturants} title={'Nearby'} />
+        {/* Top Rated */}
+        <Restuarants items={topRatedResturants} title={'Top Rated'} />
+        {/* Get Inspired */}
+        <Article />
+        {/* HMC Certfied Resturants */}
+        <Restuarants items={hmcResturants} title={'HMC Certfied Resturant'} />
       </ScrollView>
     </SafeAreaView>
   );

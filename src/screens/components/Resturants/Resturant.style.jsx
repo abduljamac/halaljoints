@@ -3,14 +3,9 @@ import { theme } from '../../../shared/theme';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: theme.spacing.medium,
-    marginHorizontal: theme.spacing.XSmall,
     padding: theme.spacing.XSmall,
-  },
-  cuisineImage: {
-    width: 70,
-    height: 70,
-    borderRadius: theme.spacing.medium,
+    marginTop: theme.spacing.medium,
+    marginHorizontal: theme.spacing.small,
   },
   header: {
     flexDirection: 'row',
@@ -18,9 +13,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
+    fontSize: theme.fontSizes.heading3,
     fontWeight: '700',
-    fontSize: theme.fontSizes.heading2,
-    marginHorizontal: theme.spacing.small,
+    marginHorizontal: theme.spacing.XSmall,
   },
   headerBtn: {
     fontWeight: '600',

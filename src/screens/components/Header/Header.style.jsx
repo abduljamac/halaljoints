@@ -30,7 +30,7 @@ export default styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     height: '100%',
-    backgroundColor: theme.colours.lightGray,
+    backgroundColor: theme.colours.white,
     margin: theme.spacing.small,
     borderRadius: theme.spacing.small,
   },
