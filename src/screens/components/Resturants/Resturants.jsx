@@ -1,19 +1,14 @@
 import { View, Text, TouchableOpacity, FlatList } from 'react-native';
-import React, { useRef } from 'react';
+import React from 'react';
 import styles from './Resturant.style';
 import RestaurantCard from './RestaurantCard/RestaurantCard';
-import { useSharedValue } from 'react-native-reanimated';
+import Animated, { FadeInLeft } from 'react-native-reanimated';
 
 const Resturants = ({ items, title }) => {
   if (items.loading) return null;
 
-  const viewableItems = useSharedValue([]);
-  const handleViewableItemsChanged = useRef(({ changed }) => {
-    // console.log('Changed in this iteration', changed[0]);
-    viewableItems.value = changed[0].isViewable;
-  });
   return (
-    <View style={styles.container}>
+    <Animated.View style={styles.container} entering={FadeInLeft.delay(300)}>
       <View style={styles.header}>
         <Text style={styles.title}>{title}</Text>
         <TouchableOpacity>
@@ -26,17 +21,12 @@ const Resturants = ({ items, title }) => {
         showsHorizontalScrollIndicator={false}
         data={items.resturants}
         initialNumToRender={5}
-        onViewableItemsChanged={handleViewableItemsChanged.current}
         renderItem={({ item, index }) => (
-          <RestaurantCard
-            res={item}
-            key={index}
-            viewableItems={viewableItems}
-          />
+          <RestaurantCard res={item} key={index} />
         )}
         keyExtractor={item => item.googlePlaceId}
       />
-    </View>
+    </Animated.View>
   );
 };
 

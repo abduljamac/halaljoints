@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: theme.fontSizes.heading3,
+    fontSize: theme.fontSizes.heading2,
     fontWeight: '700',
     marginHorizontal: theme.spacing.XSmall,
   },

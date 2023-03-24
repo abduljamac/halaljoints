@@ -9,10 +9,11 @@ import {
 import React from 'react';
 import styles from './Articles.stlye';
 import { ARTICLES } from '../../../shared/constants/articles';
+import Animated, { FadeInLeft } from 'react-native-reanimated';
 
 const Articles = () => {
   return (
-    <View style={styles.container}>
+    <Animated.View style={styles.container} entering={FadeInLeft.delay(300)}>
       <Text style={styles.title}>Get Inspired</Text>
       <FlatList
         horizontal
@@ -39,7 +40,7 @@ const Articles = () => {
         }}
         keyExtractor={item => item.title}
       />
-    </View>
+    </Animated.View>
   );
 };
 
