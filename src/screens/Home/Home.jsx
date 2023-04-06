@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './Home.style';
 import Header from '../components/Header/Header';
 import CusineCategory from '../components/CusineCategory/CusineCategory';
-import Restuarants from '../components/Resturants/Resturants';
+import Restuarants from '../components/Restaurants/Restaurants';
 import Article from '../components/Articles/Articles';
 
 import {
@@ -36,7 +36,7 @@ const Home = () => {
   const nearbyResturants = useSelector(nearbyRestaurantsSelector);
 
   // console.log('selectedCuisine: ', selectedCuisine);
-  // console.log('resturants: ', JSON.stringify(nearbyResturants, null, 3));
+  // console.log('restaurants: ', JSON.stringify(nearbyResturants, null, 3));
 
   return (
     <SafeAreaView style={styles.container}>
@@ -53,7 +53,7 @@ const Home = () => {
         <Restuarants items={topRatedResturants} title={'Top Rated'} />
         {/* Get Inspired */}
         <Article />
-        {/* HMC Certfied Resturants */}
+        {/* HMC Certfied Restaurants */}
         <Restuarants items={hmcResturants} title={'HMC Certfied Resturant'} />
       </ScrollView>
     </SafeAreaView>

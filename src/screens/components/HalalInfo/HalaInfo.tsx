@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 import { theme } from '../../../shared/theme';
-import prettyDate from '../../../shared/util/pretty-date';
+import prettyDate from '../../../shared/util/pretty-date'; 
 
 const HalaInfo = ({
   name,

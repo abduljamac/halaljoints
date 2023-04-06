@@ -3,13 +3,13 @@ import HalalJointsAPI from '../../api/HalalJointsAPI';
 import { INITIAL_STATE } from '../../constants';
 
 const initialState = {
-  resturants: {},
+  restaurants: {},
   loading: false,
   error: null,
 };
 
 export const fetchHMCResturants = createAsyncThunk(
-  'resturants/fetchHmcCertifiedResturants',
+  'restaurants/fetchHmcCertifiedResturants',
   async () => {
     const response = await HalalJointsAPI.get(
       `/restaurants?point=${INITIAL_STATE.longitude},${INITIAL_STATE.latitude}&s=hmc`,
@@ -30,7 +30,7 @@ const getHMCertfiedResturants = createSlice({
     });
     builder.addCase(fetchHMCResturants.fulfilled, (state, action) => {
       state.loading = false;
-      state.resturants = action.payload.results;
+      state.restaurants = action.payload.results;
     });
     builder.addCase(fetchHMCResturants.rejected, (state, action) => {
       state.loading = false;

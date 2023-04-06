@@ -3,13 +3,13 @@ import HalalJointsAPI from '../../api/HalalJointsAPI';
 import { INITIAL_STATE } from '../../constants';
 
 const initialState = {
-  resturants: {},
+  restaurants: {},
   loading: false,
   error: null,
 };
 
 export const fetchNearbyResturants = createAsyncThunk(
-  'resturants/fetchNearbyResturants',
+  'restaurants/fetchNearbyResturants',
   async () => {
     const response = await HalalJointsAPI.get(
       `/restaurants?point=${INITIAL_STATE.longitude},${INITIAL_STATE.latitude}&maxRadius=1000&pageSize=5`,
@@ -29,7 +29,7 @@ const getNearbyResturants = createSlice({
     });
     builder.addCase(fetchNearbyResturants.fulfilled, (state, action) => {
       state.loading = false;
-      state.resturants = action.payload.results;
+      state.restaurants = action.payload.results;
     });
     builder.addCase(fetchNearbyResturants.rejected, (state, action) => {
       state.loading = false;
