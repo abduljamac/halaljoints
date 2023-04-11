@@ -27,8 +27,6 @@ const RestaurantDetails = ({ route }) => {
   const navigation = useNavigation();
   const { details } = route.params;
   const dispatch = useDispatch();
-  // console.log(JSON.stringify(details, null, 2));
-  console.log(JSON.stringify(details.googleOpeningHoursWeekdayText, null, 2));
 
   const handleInstagramPress = () => {
     const instagramUrl = `https://www.instagram.com/${details.instagram}`;
@@ -71,80 +69,30 @@ const RestaurantDetails = ({ route }) => {
 
   const nearbyResturants = useSelector(nearbyRestaurantsSelector);
 
+  console.log('halalRating: ', details.halalRatings);
+
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <ImageBackground
           source={{ uri: details.thumbUrl }}
           style={styles.backgroundImage}>
-          <View style={styles.icnonWrapperOne}>
-            <TouchableOpacity
-              style={styles.iconButtons}
-              onPress={() => {
-                navigation.goBack();
-              }}>
-              <Ionicons
-                name="arrow-back"
-                size={theme.spacing.large}
-                color={theme.colours.primaryColor}
-              />
-            </TouchableOpacity>
-            <View style={styles.iconWrapperTwo}>
-              <View>
-                <TouchableOpacity
-                  style={styles.icons}
-                  onPress={handleInstagramPress}>
-                  <AntDesign
-                    name="instagram"
-                    size={24}
-                    color={theme.colours.primaryColor}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.icons}
-                  onPress={handlePhonePress}>
-                  <AntDesign
-                    name="phone"
-                    size={24}
-                    color={theme.colours.primaryColor}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.icons}
-                  onPress={handleSharePress}>
-                  <Feather
-                    name="share"
-                    size={24}
-                    color={theme.colours.primaryColor}
-                  />
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
+          <TouchableOpacity
+            style={styles.iconButtons}
+            onPress={() => {
+              navigation.goBack();
+            }}>
+            <Ionicons
+              name="arrow-back"
+              size={theme.spacing.large}
+              color={theme.colours.primaryColor}
+            />
+          </TouchableOpacity>
         </ImageBackground>
         <View style={styles.descriptionWrapper}>
           <View style={styles.resturantDetails}>
             <Text style={styles.restaurantName}>{details.name}</Text>
-            <Text style={styles.restaurantAddress}>{details.address}</Text>
           </View>
-          {details.halalRatings.length > 0 && (
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              style={{
-                flex: 1,
-                flexDirection: 'row',
-                marginLeft: theme.spacing.large,
-                marginRight: theme.spacing.large,
-                paddingVertical: theme.spacing.medium,
-              }}>
-              {details.halalRatings.map((text, i) => (
-                <View style={styles.tagsWrapper} key={i}>
-                  <Text style={styles.tagText}>{formatString(text)}</Text>
-                </View>
-              ))}
-            </ScrollView>
-          )}
         </View>
 
         <View
@@ -152,41 +100,12 @@ const RestaurantDetails = ({ route }) => {
             paddingVertical: theme.spacing.large,
             backgroundColor: theme.colours.white,
           }}>
-          <Text
-            style={{
-              fontWeight: '700',
-              fontSize: theme.fontSizes.heading2,
-              marginHorizontal: theme.spacing.large,
-            }}>
-            Halal Info
-          </Text>
           <HalaInfo
             name={details.name}
             halalDescription={details.halalDescription}
             halalDescriptionDate={details.halalDescriptionDate}
             halalDescriptionSource={details.halalDescriptionSource}
-          />
-        </View>
-        <View style={styles.dateWrapper}>
-          {formattedHours.map(item => (
-            <View
-              key={item.day}
-              style={{ flexDirection: 'row', marginBottom: 8 }}>
-              <Text style={{ flex: 1, fontWeight: 'bold' }}>{item.day}</Text>
-              <Text style={{ flex: 1, textAlign: 'right' }}>{item.hours}</Text>
-            </View>
-          ))}
-        </View>
-        {/* Nearby */}
-        <View
-          style={{
-            paddingHorizontal: theme.spacing.small,
-            backgroundColor: theme.colours.white,
-          }}>
-          <Restaurants
-            items={nearbyResturants}
-            title={'Nearby'}
-            showAll={false}
+            halalRatings={details.halalRatings}
           />
         </View>
       </ScrollView>

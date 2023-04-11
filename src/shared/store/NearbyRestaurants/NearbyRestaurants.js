@@ -8,8 +8,8 @@ const initialState = {
   error: null,
 };
 
-export const fetchNearbyResturants = createAsyncThunk(
-  'restaurants/fetchNearbyResturants',
+export const fetchNearbyRestaurants = createAsyncThunk(
+  'restaurants/fetchNearbyRestaurants',
   async () => {
     const response = await HalalJointsAPI.get(
       `/restaurants?point=${INITIAL_STATE.longitude},${INITIAL_STATE.latitude}&maxRadius=1000&pageSize=5`,
@@ -18,20 +18,20 @@ export const fetchNearbyResturants = createAsyncThunk(
   },
 );
 
-const getNearbyResturants = createSlice({
-  name: 'nearbyResturants',
+const getNearbyRestaurants = createSlice({
+  name: 'nearbyRestaurants',
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(fetchNearbyResturants.pending, (state, action) => {
+    builder.addCase(fetchNearbyRestaurants.pending, (state, action) => {
       state.loading = true;
       state.error = null;
     });
-    builder.addCase(fetchNearbyResturants.fulfilled, (state, action) => {
+    builder.addCase(fetchNearbyRestaurants.fulfilled, (state, action) => {
       state.loading = false;
       state.restaurants = action.payload.results;
     });
-    builder.addCase(fetchNearbyResturants.rejected, (state, action) => {
+    builder.addCase(fetchNearbyRestaurants.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });
@@ -40,4 +40,4 @@ const getNearbyResturants = createSlice({
 
 export const nearbyRestaurantsSelector = state => state.nearbyResturants;
 
-export default getNearbyResturants.reducer;
+export default getNearbyRestaurants.reducer;

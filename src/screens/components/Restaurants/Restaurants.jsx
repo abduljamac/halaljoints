@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, FlatList } from 'react-native';
 import React from 'react';
-import styles from './Resturant.style';
+import styles from './Restaurants.style';
 import RestaurantCard from './RestaurantCard/RestaurantCard';
 import Animated, { FadeInLeft } from 'react-native-reanimated';
 
@@ -24,7 +24,7 @@ const Restaurants = ({ items, title, showAll }) => {
         data={items.restaurants}
         initialNumToRender={5}
         renderItem={({ item, index }) => (
-          <RestaurantCard res={item} key={index} />
+          <RestaurantCard restaurant={item} key={index} />
         )}
         keyExtractor={item => item.googlePlaceId}
       />

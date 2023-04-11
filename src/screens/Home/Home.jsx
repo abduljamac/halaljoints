@@ -1,42 +1,49 @@
-import { ScrollView, SafeAreaView, Text } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import { ScrollView, SafeAreaView } from 'react-native';
+import React, { useEffect, useMemo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Home.style';
 import Header from '../components/Header/Header';
-import CusineCategory from '../components/CusineCategory/CusineCategory';
 import Restuarants from '../components/Restaurants/Restaurants';
 import Article from '../components/Articles/Articles';
 
 import {
-  fetchTopRatedResturants,
+  fetchTopRatedRestaurants,
   topRatedRestaurantsSelector,
 } from '../../shared/store/TopRated/TopRated';
 import {
-  fetchHMCResturants,
+  fetchHMCRestaurants,
   hmcRestaurantsSelector,
 } from '../../shared/store/HMCCertified/HMCCertified';
 import {
-  fetchNearbyResturants,
+  fetchNearbyRestaurants,
   nearbyRestaurantsSelector,
 } from '../../shared/store/NearbyRestaurants/NearbyRestaurants';
 
 const Home = () => {
-  const [selectedCuisine, setselectedCuisine] = useState('');
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchNearbyResturants());
-    dispatch(fetchTopRatedResturants());
-    dispatch(fetchHMCResturants());
-    dispatch(fetchNearbyResturants());
+    dispatch(fetchNearbyRestaurants());
+    dispatch(fetchTopRatedRestaurants());
+    dispatch(fetchHMCRestaurants());
+    dispatch(fetchNearbyRestaurants());
   }, []);
 
-  const topRatedResturants = useSelector(topRatedRestaurantsSelector);
-  const hmcResturants = useSelector(hmcRestaurantsSelector);
-  const nearbyResturants = useSelector(nearbyRestaurantsSelector);
+  const topRatedRestaurants = useSelector(
+    useMemo(() => topRatedRestaurantsSelector, []),
+  );
+  const hmcRestaurants = useSelector(useMemo(() => hmcRestaurantsSelector, []));
+  const nearbyRestaurants = useSelector(
+    useMemo(() => nearbyRestaurantsSelector, []),
+  );
 
-  // console.log('selectedCuisine: ', selectedCuisine);
-  // console.log('restaurants: ', JSON.stringify(nearbyResturants, null, 3));
+  const renderArticle = useCallback(() => {
+    if (!topRatedRestaurants.loading) {
+      return <Article />;
+    }
+    return null;
+  }, [topRatedRestaurants.loading]);
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -45,16 +52,17 @@ const Home = () => {
         showsVerticalScrollIndicator={false}
         style={styles.content}
         contentContainerStyle={{ paddingBottom: 60 }}>
-        <CusineCategory setselectedCuisine={setselectedCuisine} />
-
         {/* Nearby */}
-        <Restuarants items={nearbyResturants} title={'Nearby'} />
-        {/* Top Rated */}
-        <Restuarants items={topRatedResturants} title={'Top Rated'} />
+        <Restuarants items={nearbyRestaurants} title={'Nearby'} />
+
         {/* Get Inspired */}
-        <Article />
+        {renderArticle()}
+
+        {/* Top Rated */}
+        <Restuarants items={topRatedRestaurants} title={'Top Rated'} />
+
         {/* HMC Certfied Restaurants */}
-        <Restuarants items={hmcResturants} title={'HMC Certfied Resturant'} />
+        <Restuarants items={hmcRestaurants} title={'HMC Certfied Resturant'} />
       </ScrollView>
     </SafeAreaView>
   );

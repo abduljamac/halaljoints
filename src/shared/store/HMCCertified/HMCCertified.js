@@ -8,8 +8,8 @@ const initialState = {
   error: null,
 };
 
-export const fetchHMCResturants = createAsyncThunk(
-  'restaurants/fetchHmcCertifiedResturants',
+export const fetchHMCRestaurants = createAsyncThunk(
+  'restaurants/fetchHmcCertifiedRestaurants',
   async () => {
     const response = await HalalJointsAPI.get(
       `/restaurants?point=${INITIAL_STATE.longitude},${INITIAL_STATE.latitude}&s=hmc`,
@@ -19,20 +19,20 @@ export const fetchHMCResturants = createAsyncThunk(
   },
 );
 
-const getHMCertfiedResturants = createSlice({
+const getHMCertfiedRestaurants = createSlice({
   name: 'hmcCertified',
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(fetchHMCResturants.pending, (state, action) => {
+    builder.addCase(fetchHMCRestaurants.pending, (state, action) => {
       state.loading = true;
       state.error = null;
     });
-    builder.addCase(fetchHMCResturants.fulfilled, (state, action) => {
+    builder.addCase(fetchHMCRestaurants.fulfilled, (state, action) => {
       state.loading = false;
       state.restaurants = action.payload.results;
     });
-    builder.addCase(fetchHMCResturants.rejected, (state, action) => {
+    builder.addCase(fetchHMCRestaurants.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });
@@ -41,4 +41,4 @@ const getHMCertfiedResturants = createSlice({
 
 export const hmcRestaurantsSelector = state => state.hmcCertified;
 
-export default getHMCertfiedResturants.reducer;
+export default getHMCertfiedRestaurants.reducer;

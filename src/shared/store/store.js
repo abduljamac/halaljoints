@@ -1,14 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import getNearbyResturants from './NearbyRestaurants/NearbyRestaurants';
-import getTopRatedResturants from './TopRated/TopRated';
-import getHMCertfiedRes from './HMCCertified/HMCCertified';
+import getNearbyRestaurants from './NearbyRestaurants/NearbyRestaurants';
+import getTopRatedRestaurants from './TopRated/TopRated';
+import getHMCertfiedRestaurants from './HMCCertified/HMCCertified';
 
 const store = configureStore({
   reducer: {
-    nearbyResturants: getNearbyResturants,
-    topRated: getTopRatedResturants,
-    hmcCertified: getHMCertfiedRes,
-    nearby: getNearbyResturants,
+    nearbyResturants: getNearbyRestaurants,
+    topRated: getTopRatedRestaurants,
+    hmcCertified: getHMCertfiedRestaurants,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware(),
 });

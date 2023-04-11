@@ -4,15 +4,16 @@ import { theme } from '../../../shared/theme';
 const styles = StyleSheet.create({
   container: {
     marginTop: 5,
-    marginHorizontal: theme.spacing.XSmall,
     borderRadius: theme.spacing.small,
     padding: theme.spacing.XSmall,
+    marginHorizontal: theme.spacing.small,
   },
   title: {
     fontSize: theme.fontSizes.heading2,
     fontWeight: '700',
     marginHorizontal: theme.spacing.XSmall,
     paddingBottom: theme.spacing.small,
+    marginHorizontal: theme.spacing.XSmall,
   },
   articleContainer: {
     marginTop: 2,
