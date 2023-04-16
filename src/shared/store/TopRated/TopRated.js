@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import HalalJointsAPI from '../../api/HalalJointsAPI';
-import { INITIAL_STATE } from '../../constants';
 
 const initialState = {
   restaurants: {},
@@ -10,10 +9,13 @@ const initialState = {
 
 export const fetchTopRatedRestaurants = createAsyncThunk(
   'restaurants/fetchTopRatedRestaurants',
-  async () => {
+  async (_, { getState }) => {
+    const { longitude, latitude } = getState().userLocation;
+
     const response = await HalalJointsAPI.get(
-      `/restaurants?point=${INITIAL_STATE.longitude},${INITIAL_STATE.latitude}&maxRadius=1000&pageSize=5&sort=-googleRating`,
+      `/restaurants?point=${longitude},${latitude}&maxRadius=1000&sort=-googleRating`,
     );
+
     return response.data;
   },
 );

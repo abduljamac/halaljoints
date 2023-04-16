@@ -13,15 +13,15 @@ import { useNavigation } from '@react-navigation/native';
 import { theme } from '../../shared/theme';
 import { Ionicons, AntDesign, Feather, Entypo } from '@expo/vector-icons';
 import * as Clipboard from 'expo-clipboard';
-import HalaInfo from '../components/HalalInfo/HalaInfo';
+import HalaInfo from '../Components/HalalInfo/HalaInfo';
 import styles from './RestaurantDetails.style';
 import formatString from '../../shared/util/format-string';
 import { BlurView } from 'expo-blur';
 import {
   fetchNearbyRestaurants,
   nearbyRestaurantsSelector,
-} from '../../shared/store/NearbyRestaurants/NearbyRestaurants';
-import Restaurants from '../components/Restaurants/Restaurants';
+} from '../../shared/store/NearbyRestaurants/nearbyRestaurants';
+import Restaurants from '../Components/Restaurants/Restaurants';
 
 const RestaurantDetails = ({ route }) => {
   const navigation = useNavigation();
@@ -68,8 +68,6 @@ const RestaurantDetails = ({ route }) => {
   }, []);
 
   const nearbyRestaurants = useSelector(nearbyRestaurantsSelector);
-
-  // console.log('halalRating: ', details.halalRatings);
 
   return (
     <View style={styles.container}>

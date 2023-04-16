@@ -2,7 +2,7 @@ import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import React from 'react';
 import Cuisines from '../../../shared/constants/cuisines';
 import Category from './Category/Category';
-import styles from '../CusineCategory/CusineCategory.style';
+import styles from './CusineCategory.style';
 import Animated, { FadeInLeft } from 'react-native-reanimated';
 
 const CusineCategory = ({ setselectedCuisine }) => {

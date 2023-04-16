@@ -2,22 +2,22 @@ import { ScrollView, SafeAreaView } from 'react-native';
 import React, { useEffect, useMemo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Home.style';
-import Header from '../components/Header/Header';
-import Restuarants from '../components/Restaurants/Restaurants';
-import Article from '../components/Articles/Articles';
+import Header from '../Components/Header/Header';
+import Restuarants from '../Components/Restaurants/Restaurants';
+import Article from '../Components/Articles/Articles';
 
 import {
   fetchTopRatedRestaurants,
   topRatedRestaurantsSelector,
-} from '../../shared/store/TopRated/TopRated';
+} from '../../shared/store/TopRated/topRated';
 import {
   fetchHMCRestaurants,
   hmcRestaurantsSelector,
-} from '../../shared/store/HMCCertified/HMCCertified';
+} from '../../shared/store/HMCCertified/hmcCertified';
 import {
   fetchNearbyRestaurants,
   nearbyRestaurantsSelector,
-} from '../../shared/store/NearbyRestaurants/NearbyRestaurants';
+} from '../../shared/store/NearbyRestaurants/nearbyRestaurants';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -36,6 +36,8 @@ const Home = () => {
   const nearbyRestaurants = useSelector(
     useMemo(() => nearbyRestaurantsSelector, []),
   );
+
+  console.log('nearbyRestaurants', nearbyRestaurants);
 
   const renderArticle = useCallback(() => {
     if (!topRatedRestaurants.loading) {

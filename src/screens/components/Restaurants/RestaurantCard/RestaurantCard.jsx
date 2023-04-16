@@ -5,7 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
 
 const RestaurantCard = ({ restaurant, isMapView }) => {
-  console.log(isMapView);
   const navigation = useNavigation();
 
   const containerStyle = isMapView ? styles.mapContainer : styles.card;

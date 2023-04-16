@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { theme } from '../../shared/theme';
-import Restaurants from '../components/Restaurants/Restaurants';
+import Restaurants from '../Components/Restaurants/Restaurants';
 import {
   fetchNearbyRestaurants,
   nearbyRestaurantsSelector,
-} from '../../shared/store/NearbyRestaurants/NearbyRestaurants';
+} from '../../shared/store/NearbyRestaurants/nearbyRestaurants';
 
 const Explore = () => {
   const dispatch = useDispatch();
