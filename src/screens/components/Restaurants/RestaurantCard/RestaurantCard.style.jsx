@@ -62,6 +62,16 @@ const styles = StyleSheet.create({
     borderRadius: theme.spacing.small,
     marginRight: theme.spacing.small,
   },
+  mapContainer: {
+    marginHorizontal: theme.spacing.XSmall,
+    height: 150, // decrease the height
+    width: 200, // add a width
+    marginTop: theme.spacing.small,
+    marginBottom: 10,
+    borderRadius: theme.spacing.small,
+    overflow: 'hidden',
+    alignItems: 'center',
+  },
 });
 
 export default styles;

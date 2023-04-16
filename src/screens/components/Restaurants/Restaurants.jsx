@@ -4,11 +4,11 @@ import styles from './Restaurants.style';
 import RestaurantCard from './RestaurantCard/RestaurantCard';
 import Animated, { FadeInLeft } from 'react-native-reanimated';
 
-const Restaurants = ({ items, title, showAll }) => {
+const Restaurants = ({ items, title, showAll, isMapView }) => {
   if (items.loading) return null;
 
   return (
-    <Animated.View style={styles.container} entering={FadeInLeft.delay(300)}>
+    <Animated.View style={styles.container} entering={FadeInLeft.delay(100)}>
       <View style={styles.header}>
         <Text style={styles.title}>{title}</Text>
         {showAll && (
@@ -24,7 +24,11 @@ const Restaurants = ({ items, title, showAll }) => {
         data={items.restaurants}
         initialNumToRender={5}
         renderItem={({ item, index }) => (
-          <RestaurantCard restaurant={item} key={index} />
+          <RestaurantCard
+            restaurant={item}
+            key={index}
+            isMapView={isMapView ? true : undefined}
+          />
         )}
         keyExtractor={item => item.googlePlaceId}
       />

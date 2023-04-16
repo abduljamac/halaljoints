@@ -4,15 +4,16 @@ import styles from './RestaurantCard.style';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
 
-const RestaurantCard = ({ restaurant }) => {
+const RestaurantCard = ({ restaurant, isMapView }) => {
+  console.log(isMapView);
   const navigation = useNavigation();
 
-  // console.log(JSON.stringify(restaurant, null, 2));
+  const containerStyle = isMapView ? styles.mapContainer : styles.card;
 
   return (
     <TouchableOpacity
       activeOpacity={1}
-      style={styles.card}
+      style={containerStyle}
       onPress={() => {
         navigation.navigate('RestaurantDetails', { details: restaurant });
       }}>

@@ -44,7 +44,6 @@ const Home = () => {
     return null;
   }, [topRatedRestaurants.loading]);
 
-
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -53,16 +52,28 @@ const Home = () => {
         style={styles.content}
         contentContainerStyle={{ paddingBottom: 60 }}>
         {/* Nearby */}
-        <Restuarants items={nearbyRestaurants} title={'Nearby'} />
+        <Restuarants
+          items={nearbyRestaurants}
+          title={'Nearby'}
+          showAll={true}
+        />
 
         {/* Get Inspired */}
         {renderArticle()}
 
         {/* Top Rated */}
-        <Restuarants items={topRatedRestaurants} title={'Top Rated'} />
+        <Restuarants
+          items={topRatedRestaurants}
+          title={'Top Rated'}
+          showAll={true}
+        />
 
         {/* HMC Certfied Restaurants */}
-        <Restuarants items={hmcRestaurants} title={'HMC Certfied Resturant'} />
+        <Restuarants
+          items={hmcRestaurants}
+          title={'HMC Certfied Resturant'}
+          showAll={true}
+        />
       </ScrollView>
     </SafeAreaView>
   );

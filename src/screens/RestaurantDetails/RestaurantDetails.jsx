@@ -18,7 +18,7 @@ import styles from './RestaurantDetails.style';
 import formatString from '../../shared/util/format-string';
 import { BlurView } from 'expo-blur';
 import {
-  fetchNearbyResturants,
+  fetchNearbyRestaurants,
   nearbyRestaurantsSelector,
 } from '../../shared/store/NearbyRestaurants/NearbyRestaurants';
 import Restaurants from '../components/Restaurants/Restaurants';
@@ -64,12 +64,12 @@ const RestaurantDetails = ({ route }) => {
   });
 
   useEffect(() => {
-    dispatch(fetchNearbyResturants());
+    dispatch(fetchNearbyRestaurants());
   }, []);
 
-  const nearbyResturants = useSelector(nearbyRestaurantsSelector);
+  const nearbyRestaurants = useSelector(nearbyRestaurantsSelector);
 
-  console.log('halalRating: ', details.halalRatings);
+  // console.log('halalRating: ', details.halalRatings);
 
   return (
     <View style={styles.container}>
@@ -78,7 +78,7 @@ const RestaurantDetails = ({ route }) => {
           source={{ uri: details.thumbUrl }}
           style={styles.backgroundImage}>
           <TouchableOpacity
-            style={styles.iconButtons}
+            style={styles.iconButton}
             onPress={() => {
               navigation.goBack();
             }}>

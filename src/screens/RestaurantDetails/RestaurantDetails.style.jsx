@@ -18,7 +18,7 @@ export default styles = StyleSheet.create({
     marginTop: -theme.spacing.large,
     borderRadius: theme.spacing.large,
   },
-  iconButtons: {
+  iconButton: {
     height: theme.spacing.XXLarge + 2,
     width: theme.spacing.XXLarge + 2,
     backgroundColor: theme.colours.white,
