@@ -1,4 +1,4 @@
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
 import React, { useEffect, useMemo, useState } from 'react';
 import MapView, { Marker } from 'react-native-maps';
 import styles from './Explore.style';
@@ -12,24 +12,22 @@ import {
   nearbyRestaurantsSelector,
 } from '../../shared/store/NearbyRestaurants/nearbyRestaurants';
 
+import { userLocationSelector } from '../../shared/store/UserLocation/userLocation';
+
 const Explore = () => {
-  const dispatch = useDispatch();
   const navigation = useNavigation();
 
-  useEffect(() => {
-    dispatch(fetchNearbyRestaurants());
-  }, []);
-
-  const nearbyRestaurants = useSelector(
-    useMemo(() => nearbyRestaurantsSelector, []),
-  );
+  // get location from redux store
+  const location = useSelector(userLocationSelector);
 
   const [region, setRegion] = useState({
-    latitude: 51.513561,
-    longitude: -0.137706,
+    latitude: location.latitude,
+    longitude: location.longitude,
     latitudeDelta: 0.08,
     longitudeDelta: 0.05,
   });
+
+  const nearbyRestaurants = useSelector(nearbyRestaurantsSelector);
 
   useEffect(() => {
     // Only update the region if there are restaurants
@@ -65,7 +63,7 @@ const Explore = () => {
   return (
     <View style={styles.container}>
       <MapView style={styles.map} region={region}>
-        {nearbyRestaurants.restaurants.map((restaurant, i) => (
+        {nearbyRestaurants?.restaurants?.map((restaurant, i) => (
           <Marker
             key={i}
             coordinate={{
@@ -98,11 +96,17 @@ const Explore = () => {
         </TouchableOpacity>
       </View>
 
-      <Restaurants
-        items={nearbyRestaurants}
-        title={'Suggested Restaurants'}
-        isMapView={true}
-      />
+      {nearbyRestaurants?.restaurants?.length ? (
+        <Restaurants
+          items={nearbyRestaurants}
+          title={'Suggested Restaurants'}
+          isMapView={true}
+        />
+      ) : (
+        <View style={styles.noResultsContainer}>
+          <Text style={styles.noRes}>No results found</Text>
+        </View>
+      )}
     </View>
   );
 };

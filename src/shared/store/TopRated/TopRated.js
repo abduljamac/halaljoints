@@ -13,7 +13,7 @@ export const fetchTopRatedRestaurants = createAsyncThunk(
     const { longitude, latitude } = getState().userLocation;
 
     const response = await HalalJointsAPI.get(
-      `/restaurants?point=${longitude},${latitude}&maxRadius=1000&sort=-googleRating`,
+      `/restaurants?point=${longitude},${latitude}&maxRadius=2000&sort=-googleRating`,
     );
 
     return response.data;

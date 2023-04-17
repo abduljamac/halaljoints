@@ -2,6 +2,6 @@
 
 ## Todo:
 
-- [ ] Get users location when they open the app
+- [x] Once user enters in location lat/lng changes globally
 - [ ] Redesign restaurant details screen
 - [ ] Design bookmark feature and screen

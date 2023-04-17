@@ -8,9 +8,16 @@ const initialState = {
 const getUserLocation = createSlice({
   name: 'userLocation',
   initialState,
-  reducers: {},
+  reducers: {
+    setUserLocation: (state, action) => {
+      state.latitude = action.payload.lat;
+      state.longitude = action.payload.lng;
+    },
+  },
 });
 
 export const userLocationSelector = state => state.userLocation;
+
+export const { setUserLocation } = getUserLocation.actions;
 
 export default getUserLocation.reducer;

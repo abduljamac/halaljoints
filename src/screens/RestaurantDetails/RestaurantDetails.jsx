@@ -15,7 +15,7 @@ import { Ionicons, AntDesign, Feather, Entypo } from '@expo/vector-icons';
 import * as Clipboard from 'expo-clipboard';
 import HalaInfo from '../Components/HalalInfo/HalaInfo';
 import styles from './RestaurantDetails.style';
-import formatString from '../../shared/util/format-string';
+import formatString from '../../shared/utils/format-string';
 import { BlurView } from 'expo-blur';
 import {
   fetchNearbyRestaurants,

@@ -11,10 +11,9 @@ export const fetchNearbyRestaurants = createAsyncThunk(
   'restaurants/fetchNearbyRestaurants',
   async (_, { getState }) => {
     const { longitude, latitude } = getState().userLocation;
-    console.log(longitude, latitude);
 
     const response = await HalalJointsAPI.get(
-      `/restaurants?point=${longitude},${latitude}&maxRadius=1000`,
+      `/restaurants?point=${longitude},${latitude}&maxRadius=2000`,
     );
 
     return response.data;

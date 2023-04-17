@@ -39,4 +39,15 @@ export default styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: theme.spacing.large,
   },
+  noResultsContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingBottom: '30%',
+  },
+  noRes: {
+    fontSize: theme.fontSizes.heading1,
+    color: theme.colours.primaryColor,
+    textAlign: 'center',
+    fontWeight: '800',
+  },
 });

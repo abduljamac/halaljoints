@@ -26,7 +26,6 @@ const Home = () => {
     dispatch(fetchNearbyRestaurants());
     dispatch(fetchTopRatedRestaurants());
     dispatch(fetchHMCRestaurants());
-    dispatch(fetchNearbyRestaurants());
   }, []);
 
   const topRatedRestaurants = useSelector(
@@ -36,8 +35,6 @@ const Home = () => {
   const nearbyRestaurants = useSelector(
     useMemo(() => nearbyRestaurantsSelector, []),
   );
-
-  console.log('nearbyRestaurants', nearbyRestaurants);
 
   const renderArticle = useCallback(() => {
     if (!topRatedRestaurants.loading) {

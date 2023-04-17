@@ -1,8 +1,8 @@
 import { View, Text, ScrollView } from 'react-native';
 import React from 'react';
 import { theme } from '../../../shared/theme';
-import prettyDate from '../../../shared/util/pretty-date';
-import formatString from '../../../shared/util/format-string';
+import prettyDate from '../../../shared/utils/pretty-date';
+import formatString from '../../../shared/utils/format-string';
 import styles from './HalalInfo.style';
 
 const HalaInfo = ({
