@@ -18,15 +18,18 @@ import {
   fetchNearbyRestaurants,
   nearbyRestaurantsSelector,
 } from '../../shared/store/NearbyRestaurants/nearbyRestaurants';
+import { userLocationSelector } from '../../shared/store/UserLocation/userLocation';
 
 const Home = () => {
   const dispatch = useDispatch();
+
+  const userLocation = useSelector(userLocationSelector);
 
   useEffect(() => {
     dispatch(fetchNearbyRestaurants());
     dispatch(fetchTopRatedRestaurants());
     dispatch(fetchHMCRestaurants());
-  }, []);
+  }, [userLocation]);
 
   const topRatedRestaurants = useSelector(
     useMemo(() => topRatedRestaurantsSelector, []),
