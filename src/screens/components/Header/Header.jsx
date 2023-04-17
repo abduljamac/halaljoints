@@ -38,7 +38,7 @@ const Header = () => {
       <View style={styles.inputWrapper}>
         <View style={styles.inputContainer}>
           <TextInput
-            placeholder="Enter Postcode"
+            placeholder="Enter Location"
             style={styles.textInput}
             onChangeText={setInput}
             value={input}

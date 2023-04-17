@@ -7,6 +7,7 @@ export const getLatLngFromLocation = async location => {
   const response = await axios.get(GOOGLE_MAPS_API, {
     params: {
       address: location,
+      region: 'uk',
       key: GOOGLE_MAPS_API_KEY,
     },
   });
